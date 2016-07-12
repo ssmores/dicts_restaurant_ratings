@@ -11,21 +11,18 @@ def restaurant_ratings(filename):
         line = line.rstrip()
         restaurants = line.split(":")
 
-
-
-        # for restaurant, ratings in restaurants_in_order.items():
-            # restaurants_in_order[restaurant] = ratings
-            # print restaurants_in_order
-            #print "%s is rated at %d" % (restaurant, ratings)
-
         restaurant, ratings = restaurants
+        ratings = float(ratings)
         restaurants_in_order[restaurant] = ratings
-    
+
+    restaurant_user = raw_input("Please enter a restaurant you'd like to rate: ")
+    ratings_user = float(raw_input("Please enter a rating for the restaurant: "))
+
+    restaurants_in_order[restaurant_user] = ratings_user
+
+
     for restaurant in sorted(restaurants_in_order):
         ratings = restaurants_in_order[restaurant]
-        print "%s is rated at %s" % (restaurant, ratings)
+        print "%s is rated at %d" % (restaurant, ratings)
 
-
-
-
-#restaurant_ratings('scores.txt')
+    restaurant_file.close()
